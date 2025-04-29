@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyBookOfEvidences - Support</title>
+    <style>
+        :root {
+            --primary-color: #007BFF;
+            --secondary-color: #6c757d;
+            --background-color: #f8f9fa;
+            --text-color: #212529;
+            --box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            --border-radius: 12px;
+            --content-width: 1200px;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: var(--content-width);
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo h1 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+        }
+
+        .documentation {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .sidebar {
+            flex: 0 0 250px;
+            position: sticky;
+            top: 100px;
+            align-self: flex-start;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+        }
+
+        .sidebar li {
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .sidebar li:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 12px 20px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: rgba(0,123,255,0.1);
+            color: var(--primary-color);
+        }
+
+        .sidebar a.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        .help-section {
+            margin-bottom: 40px;
+            scroll-margin-top: 100px;
+        }
+
+        .section-header {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .help-box {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0,123,255,0.2);
+        }
+
+        .help-box h3 {
+            margin-top: 0;
+            color: var(--text-color);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .help-box ul {
+            padding-left: 20px;
+        }
+
+        .help-box li {
+            margin-bottom: 8px;
+        }
+
+        .step-list {
+            counter-reset: steps;
+            list-style-type: none;
+            padding-left: 10px;
+        }
+
+        .step-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+        }
+
+        .step-list li::before {
+            counter-increment: steps;
+            content: counter(steps)".";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .bullet-list {
+            list-style-type: none;
+            padding-left: 10px;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+        }
+
+        .bullet-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: white;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+            padding: 30px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links a {
+            margin-left: 20px;
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .documentation {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                flex: auto;
+                position: static;
+                margin-bottom: 30px;
+            }
+
+            header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="placeholder-logo.png" alt="MyBookOfEvidences Logo">
+                <h1>MyBookOfEvidences</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#getting-started">Getting Started</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Support & Documentation</h2>
+            <p>Welcome to the MyBookOfEvidences support center. Here you'll find everything you need to know about documenting your spiritual journey with our app.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="documentation">
+            <aside class="sidebar">
+                <ul>
+                    <li><a href="#getting-started" class="active">Getting Started</a></li>
+                    <li><a href="#features">Features Guide</a></li>
+                    <li><a href="#book-view">Book View Guide</a></li>
+                    <li><a href="#export">Exporting & Printing</a></li>
+                    <li><a href="#themes">Themes & Appearance</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </aside>
+
+            <main class="content">
+                <!-- Getting Started Section -->
+                <section id="getting-started" class="help-section">
+                    <h2 class="section-header">Getting Started</h2>
+                    
+                    <div class="help-box">
+                        <h3>Welcome to MyBookOfEvidences</h3>
+                        <p>This app helps you document spiritual experiences and the testimony you've gained through them. Think of it as a personal journal of your spiritual journey.</p>
+                    </div>
+                    
+                    <div class="help-box">
+                        <h3>Basic Navigation</h3>
+                        <p>The app has three main views you can choose from:</p>
+                        <ul class="bullet-list">
+                            <li><strong>List View</strong> - Displays your entries as a scrollable list</li>
+                            <li><strong>Gallery View</strong> - Shows your entries with image thumbnails in a grid</li>
+                            <li><strong>Book View</strong> - Presents your entries in a book-like format you can flip through</li>
+                        </ul>
+                        <p>You can switch between these views in the Settings screen.</p>
+                    </div>
+                    
+                    <div class="help-box">
+                        <h3>Creating Your First Entry</h3>
+                        <ol class="step-list">
+                            <li>Tap the + button in the top right corner</li>
+                            <li>Enter a title for your experience</li>
+                            <li>Choose the date when it occurred</li>
+                            <li>Describe your experience in the Experience section</li>
+                            <li>Share what testimony you gained in the Testimony section</li>
+                            <li>Optionally add photos or tags to help organize your entries</li>
+                            <li>Tap Save when you're finished</li>
+                        </ol>
+                    </div>
+                </section>
+
+                <!-- Features Guide Section -->
+                <section id="features" class="help-section">
+                    <h2 class="section-header">Features Guide</h2>
+                    
+                    <div class="help-box">
+                        <h3>Rich Text Editing</h3>
+                        <p>When writing your experiences and testimonies, you can format text using the toolbar:</p>
+                        <ul class="bullet-list">
+                            <li><strong>Bold</strong> - Emphasize important words</li>
+                            <li><strong>Italic</strong> - Add style or emphasis</li>
+                            <li><strong>Underline</strong> - Highlight key phrases</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="help-box">
+                        <h3>Adding Images</h3>
+                        <p>You can add images to your entries in two ways:</p>
+                        <ol class="step-list">
+                            <li>Tap the Add Image button in the Images section of the entry form</li>
+                            <li>Select to take a new photo or choose from your library</li>
+                            <li>You can add multiple images to a single entry</li>
+                            <li>You can also insert images directly within your text by tapping the camera icon in the text editor toolbar</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="help-box">
+                        <h3>Using Tags</h3>
+                        <p>Tags help you organize and find related entries:</p>
+                        <ol class="step-list">
+                            <li>When creating or editing an entry, scroll to the Tags section</li>
+                            <li>Tap the + icon to add a new tag</li>
+                            <li>Enter the tag name and tap Add</li>
+                            <li>Use the search bar to find entries with specific tags</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="help-box">
+                        <h3>Security Features</h3>
+                        <p>Protect your spiritual journal with password and biometric security:</p>
+                        <ol class="step-list">
+                            <li>Go to Settings > Security Settings</li>
+                            <li>Enable Password Protection</li>
+                            <li>Create and confirm your password</li>
+                            <li>Optional: Enable Face ID or Touch ID for easier access</li>
+                        </ol>
+                    </div>
+                </section>
+
+                <!-- Book View Guide Section -->
+                <section id="book-view" class="help-section">
+                    <h2 class="section-header">Book View Guide</h2>
+                    
+                    <div class="help-box">
+                        <h3>Navigating the Book</h3>
+                        <p>Book View presents your journal as a physical book:</p>
+                        <ul class="bullet-list">
+                            <li>Swipe right-to-left to flip to the next page</li>
+                            <li>Swipe left-to-right to go back a page</li>
+                            <li>The first page is a cover page</li>
+                            <li>The second page is a customizable title page (if enabled)</li>
+                            <li>The third page is a table of contents with links to your entries</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="help-box">
+                        <h3>Customizing the Title Page</h3>
+                        <p>Personalize your book's title page:</p>
+                        <ol class="step-list">
+                            <li>Go to Settings > Title Page Settings</li>
+                            <li>Toggle "Show Title Page" to enable/disable it</li>
+                            <li>Enter your name as the owner</li>
+                            <li>Add a custom subtitle</li>
+                            <li>Upload a personal image to appear on the title page</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="help-box">
+                        <h3>Using the Table of Contents</h3>
+                        <p>Quickly navigate to specific entries:</p>
+                        <ul class="bullet-list">
+                            <li>The table of contents lists all your entries chronologically</li>
+                            <li>Tap any entry title to jump directly to that page</li>
+                            <li>Page numbers are shown for each entry</li>
+                            <li>You can always return to the table of contents by tapping the "Contents" button that appears in the top-left while reading</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Exporting & Printing Section -->
+                <section id="export" class="help-section">
+                    <h2 class="section-header">Exporting and Printing</h2>
+                    
+                    <div class="help-box">
+                        <h3>Exporting as PDF</h3>
+                        <p>Create a PDF of your journal entries:</p>
+                        <ol class="step-list">
+                            <li>From any view, tap the three dots (⋯) in the top right</li>
+                            <li>Select "Export All" to export all entries, or enter selection mode to choose specific entries</li>
+                            <li>For specific entries, tap the checkmark icon, select entries, then choose "Export Selected"</li>
+                            <li>The app will generate a PDF document</li>
+                            <li>You can then share, save, or print the PDF</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="help-box">
+                        <h3>Printing Your Journal</h3>
+                        <p>Print a physical copy of your journal:</p>
+                        <ol class="step-list">
+                            <li>From any view, tap the three dots (⋯) in the top right</li>
+                            <li>Select "Print All" or enter selection mode to print specific entries</li>
+                            <li>The standard iOS print dialog will appear</li>
+                            <li>Select your printer and print settings</li>
+                            <li>Tap Print to send to your printer</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="help-box">
+                        <h3>PDF Layout</h3>
+                        <p>The exported PDF includes:</p>
+                        <ul class="bullet-list">
+                            <li>A cover page</li>
+                            <li>A title page (if enabled in settings)</li>
+                            <li>A table of contents</li>
+                            <li>All selected journal entries with their images</li>
+                            <li>Page numbers that match your Book View</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Themes & Appearance Section -->
+                <section id="themes" class="help-section">
+                    <h2 class="section-header">Themes and Appearance</h2>
+                    
+                    <div class="help-box">
+                        <h3>Changing Themes</h3>
+                        <p>Customize the look and feel of your journal:</p>
+                        <ol class="step-list">
+                            <li>Go to Settings > Themes</li>
+                            <li>Choose from the available themes (Default, Dark, Sepia)</li>
+                            <li>Tap any theme to apply it immediately</li>
+                            <li>The change will affect all views and screens</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="help-box">
+                        <h3>Creating Custom Themes</h3>
+                        <p>Create your own custom theme:</p>
+                        <ol class="step-list">
+                            <li>Go to Settings > Themes</li>
+                            <li>Tap "Create New Theme"</li>
+                            <li>Choose a name for your theme</li>
+                            <li>Select colors for primary, secondary, background, and text</li>
+                            <li>Choose a font family from the available options</li>
+                            <li>Preview how your theme will look</li>
+                            <li>Tap Save to add your theme to the list</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="help-box">
+                        <h3>Editing Themes</h3>
+                        <p>Modify existing themes:</p>
+                        <ol class="step-list">
+                            <li>Go to Settings > Themes</li>
+                            <li>Long press or right-click (context menu) on a theme</li>
+                            <li>Select "Edit Theme"</li>
+                            <li>Make your desired changes</li>
+                            <li>Tap Save to update the theme</li>
+                        </ol>
+                        <p><em>Note: The three default themes (Default, Dark, Sepia) can be edited but not deleted.</em></p>
+                    </div>
+                </section>
+
+                <!-- FAQ Section -->
+                <section id="faq" class="help-section">
+                    <h2 class="section-header">Frequently Asked Questions</h2>
+                    
+                    <div class="help-box">
+                        <h3>How secure is my journal data?</h3>
+                        <p>Your data is stored only on your device and is not uploaded to any server. When you enable password protection, your journal is secured with encryption. For maximum security, enable both password and biometric authentication.</p>
+                    </div>
+                    
+                    <div class="help-box">
+                        <h3>What if I forget my password?</h3>
+                        <p>Unfortunately, there is no password recovery option. This is a security measure to ensure your journal remains private. If you forget your password, you'll need to reinstall the app, which will result in data loss. Consider keeping a secure backup of your password.</p>
+                    </div>
+                    
+                    <div class="help-box">
+                        <h3>Can I backup my journal?</h3>
+                        <p>Yes. The best way to backup your journal is to periodically export it as a PDF. This exported PDF can be saved to cloud storage like iCloud Drive, Google Drive, or Dropbox for safekeeping.</p>
+                    </div>
+                    
+                    <div class="help-box">
+                        <h3>How many entries and images can I add?</h3>
+                        <p>The app can handle hundreds of entries and images, limited only by your device's available storage. If you have many high-resolution images, consider using the built-in image optimization to reduce storage usage.</p>
+                    </div>
+                    
+                    <div class="help-box">
+                        <h3>Will my formatting be preserved when exporting?</h3>
+                        <p>Yes. When you export to PDF, all text formatting (bold, italic, underline), images, and layout will be preserved exactly as they appear in the app.</p>
+                    </div>
+                    
+                    <div class="help-box">
+                        <h3>How do I exit the app securely?</h3>
+                        <p>If you have security enabled, you can either:</p>
+                        <ul class="bullet-list">
+                            <li>Tap the logout button in the top-left corner</li>
+                            <li>Go to Settings and select "Exit App"</li>
+                            <li>The app will automatically lock after a period of inactivity</li>
+                        </ul>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <img src="placeholder-logo.png" alt="MyBookOfEvidences Logo" height="30">
+                    <span>MyBookOfEvidences</span>
+                </div>
+                <div class="footer-links">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="mailto:support@mybookofevidences.com">Contact Support</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MyBookOfEvidences. All rights reserved. Version 1.0.0</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script to highlight the active section in the sidebar
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.help-section');
+            const navLinks = document.querySelectorAll('.sidebar a');
+            
+            // Highlight active section based on scroll position
+            window.addEventListener('scroll', function() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 120) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+            
+            // Smooth scrolling for navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active link
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
